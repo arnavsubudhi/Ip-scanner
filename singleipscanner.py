@@ -1,6 +1,19 @@
 import requests
 import csv
 
+
+def banner():
+    print(r"""
+                    _                           
+                   / \   _ __ _ __   __ ___   __
+                  / _ \ | '__| '_ \ / _` \ \ / /
+                 / ___ \| |  | | | | (_| |\ V / 
+                /_/   \_\_|  |_| |_|\__,_| \_/  
+                                
+                # Coded By Arnav Subudhi 
+    """)
+
+
 def get_ip_info(ip_address, filename):
     # IP Geolocation API
     geo_api_url = f"https://ipinfo.io/{ip_address}/json"
@@ -28,6 +41,7 @@ def get_ip_info(ip_address, filename):
         writer.writerow(data)
 
 def main():
+    banner()
     try:
         ip_address = input("Enter the IP address to scan: ")
         filename = input("Enter the filename to save the data (example: test.csv): ")

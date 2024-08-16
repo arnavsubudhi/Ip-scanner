@@ -1,6 +1,17 @@
 import requests
 import csv
 
+def banner():
+    print(r"""
+                    _                           
+                   / \   _ __ _ __   __ ___   __
+                  / _ \ | '__| '_ \ / _` \ \ / /
+                 / ___ \| |  | | | | (_| |\ V / 
+                /_/   \_\_|  |_| |_|\__,_| \_/  
+                                
+                # Coded By Arnav Subudhi 
+    """)
+
 def get_ip_info(ip_address):
     # IP Geolocation API
     geo_api_url = f"https://ipinfo.io/{ip_address}/json"
@@ -43,9 +54,15 @@ def process_bulk_ips(input_filename, output_filename):
         print(f"An error occurred: {e}")
 
 def main():
-    input_filename = input("Enter the input filename containing IP addresses (e.g., ips.csv): ")
-    output_filename = input("Enter the output filename to save the data (e.g., ip_info.csv): ")
-    process_bulk_ips(input_filename, output_filename)
+    banner()  # Display the banner
+    try:
+        input_filename = input("Enter the input filename containing IP addresses (e.g., ips.csv): ")
+        output_filename = input("Enter the output filename to save the data (e.g., ip_info.csv): ")
+        process_bulk_ips(input_filename, output_filename)
+    except KeyboardInterrupt:
+        print("\nOperation cancelled by user.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()
