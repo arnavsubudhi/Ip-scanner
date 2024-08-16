@@ -1,1 +1,0 @@
-create a scanner to fetch info from website and store it in a csv file and show real time location in map in the website
